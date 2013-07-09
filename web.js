@@ -4,12 +4,12 @@ var fs = require('fs');
 var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
-	fs.readFile('index.html', function(err, data) {
-	if (err) {
-		response.send("Error while reading file");
-	} else {
-		response.send(date);
-	}
+	fs.readFile('./index.html', function(err, data) {
+		if (err) {
+			response.send("Error while reading file");
+		} else {
+			response.send(data);
+		}
 
 	/*  response.send('Hello World 2!'); */
 });

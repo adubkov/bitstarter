@@ -5,13 +5,13 @@ var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
 
-	fs.readFileSync('./index.html', 'utf8', function(err, data) {
-		if (err) {
-			response.send("Error while reading file");
-		} else {
-			response.send(data);
-		}
-	});
+	var buf = new Buffer(256);
+
+	buf = fs.readFileSync('./index.html', 'utf8');
+	
+	response.send(buf.toString('utf8',0,buf.length);
+	
+	
 
 	/*  response.send('Hello World 2!'); */
 });
